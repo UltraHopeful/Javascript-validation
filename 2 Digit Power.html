@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>2 Digit power</title>
+    <style media="screen">
+      body { font-family: trebuchet ms; background-color: royalblue; color:black;}
+      input { font-family: trebuchet ms; background-color: lightblue; color:black; font-size:25px; border:1px solid darkblue; }
+    </style>
+    <script type="text/javascript">
+        function math()
+        {
+          var ip=parseInt(document.getElementById('ip').value);
+          var a=parseInt((ip/10));
+          var b=parseInt((ip%10));
+          if(ip!=='')
+          { document.getElementById('result').innerHTML+=a+"<sup>"+b+"</sup></b> = "+Math.pow(a,b)+"<br/>";  }
+        }
+    </script>
+  </head>
+  <body>
+    <h2>Write a javascript to take a 2 digit number and then separate these 2 digits, then multiply first digit by itself for second digit times.
+      <br/>Example:<br>Input: 42 <br>then answer is 4*4=16 <br>output: 16<br>Input: 422 <br>then answer is 42*42=1764 <br>output: 1764</h2>
+    <input type="text" id="ip" name="ip" placeholder="enter number" onkeydown="if(event.keyCode == 13){document.getElementById('b').click()}" required autofocus></input>
+    <input id="b" type="button" value="Submit" onclick="math()">
+    <h1 id="result">Answer is shown here : <br/> </h1>
+  </body>
+</html>

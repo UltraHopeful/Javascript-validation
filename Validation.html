@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Validation</title>
+    <style media="screen">
+      form { font-family:verdana;}
+      label { color:red;margin-left:5px;}
+    </style>
+    <script type="text/javascript">
+      function validate()
+      {
+        var un=document.getElementById('un').value;
+        var pwd=document.getElementById('pwd').value;
+        var un_chk= /^[A-Za-z]+$/;
+        var pwd_chk = /^(\w|[#?!@$%^&*-]){6,12}$/;
+        if(un=='')
+        { document.getElementById('v1').innerHTML=" Required "; }
+        else if(un.match(un_chk))
+        { document.getElementById('v1').innerHTML=""; }
+        else
+        { document.getElementById('v1').innerHTML=" username not starts with _, @ or any number. "; }
+        if(pwd=='')
+        { document.getElementById('v2').innerHTML=" Required "; }
+        else if(pwd.match(pwd_chk))
+        { document.getElementById('v2').innerHTML=""; }
+        else
+        { document.getElementById('v2').innerHTML="Password length must be 6 to 12 characters. "; }
+      }
+    </script>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset style="background:lightgray;">
+        <legend>Login Validation</legend>
+        Username : <input type="text" name="un" id="un" autofocus></input><label id="v1"></label><br><br>
+        Password : <input type="password" name="pwd" id="pwd" onkeydown="if(event.keyCode == 13){document.getElementById('b').click()}"></input><label id="v2"></label><br><br>
+        <input id="b" type="button" value="Submit" onclick="validate()" style="font-size:20px;"></input>
+      </fieldset>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>validation</title>
+    <style media="screen">
+      form { font-family:verdana;}
+      label { color:red;margin-left:5px;}
+    </style>
+    <script type="text/javascript">
+      function validate()
+      {
+          var mail=document.getElementById('em').value;
+          var mno=document.getElementById('mno').value;
+          var a=mail.search("@");
+          var b=mail.search("/.");
+          var mail_chk=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          var mno_chk=/^[0-9]{10}$/;
+          if(isNaN(mno))
+        	{ document.getElementById('v2').innerHTML="Mobile no. must be in digit"; }
+          else
+          {
+            if(mno.match(mno_chk))
+            {
+              if(mno.charAt(0)==9||mno.charAt(0)==8)
+                { document.getElementById('v2').innerHTML=""; return true; }
+                else
+                { document.getElementById('v2').innerHTML="Mobile no start with 9 or 8"; }
+            }
+            else
+            { document.getElementById('v2').innerHTML="Please enter 10 digit mobile number"; }
+          }
+          if(mail.match(mail_chk))
+          { document.getElementById('v1').innerHTML="";  }
+          else
+          {
+            if((a==-1)&&(b==-1))
+            { document.getElementById('v1').innerHTML=" Enter valid emalid with @ and . required like <b>abc@gmail.com</b>"; }
+            else if(a==-1)
+            { document.getElementById('v1').innerHTML=" @ required like abc@gmail.com"; }
+            else if(b==-1)
+            { document.getElementById('v1').innerHTML=" . required like abc@gmail.com"; }
+            else
+            { document.getElementById('v1').innerHTML="Please enter valid emailID ex. <b>abc@example.com</b>"; }
+          }
+      }
+      if(validate())
+
+      { window.location = "http://www.road2code.in"; }
+    </script>
+  </head>
+  <body>
+    <form action="#" method="post" >
+      <fieldset style="background:lightgray;">
+        <legend><h2>Mobile no & Email Validation</h2></legend>
+        Email : <input type="email" name="email" id="em" required autofocus></input><label id="v1"></label><br><br>
+        Mobile No : <input type="text" name="mno" id="mno" onkeydown="if(event.keyCode == 13){document.getElementById('b').click()}"></input><label id="v2"></label><br><br>
+        <input id="b" type="button" value="Submit" onclick="validate()" style="font-size:20px;"></input>
+      </fieldset>
+    </form>
+  </body>
+</html>

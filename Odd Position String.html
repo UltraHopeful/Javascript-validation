@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Odd Position Strings</title>
+    <style media="screen">
+    body { font-family: trebuchet ms; background-color: royalblue; color:black;}
+    input { font-family: trebuchet ms; background-color: lightblue; color:black; font-size:25px; border:1px solid darkblue; }
+    </style>
+    <script type="text/javascript">
+      function find()
+      {
+        var ip=document.getElementById('ip').value;
+		document.getElementById('result').innerHTML+="For "+ip+": ";
+        for (var i = 1; i <= ip.length; i++)
+        {
+          if ((i%2)==1)
+          { document.getElementById('result').innerHTML+=ip[i-1]+" "; }
+        }
+		document.getElementById('result').innerHTML+="<br/>";
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Write a javascript to print characters of a string of odd positions.<br/>Example: <br/>Input: INDIA <br/>Output: I,D,A.</h2>
+    <input type="text" name="ip" id="ip" placeholder="Enter string" onkeydown="if(event.keyCode == 13){document.getElementById('b').click()}" required autofocus/>
+    <input id="b" type="button" value="MouseHover" onclick="find()"/>
+    <h1 id="result"></h1>
+  </body>
+</html>

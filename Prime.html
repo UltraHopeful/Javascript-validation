@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prime Numbers</title>
+  <style media="screen">
+    body { background: powderblue; font-family: verdana;}
+    input  { font-family: verdana;}
+    div { display: inline-block; position: relative; background: lightgreen; border:5px solid darkgreen; padding: 50px; margin:50px; }
+  </style>
+  <script type="text/javascript">
+      function primeornot()
+      {
+        var n=parseInt(document.getElementById('num').value);
+        var flag=0;
+        for (var i = 1; i <= n; i++)
+        {
+          if(n%i==0) { flag++; }
+        }
+        if(flag==2) { document.getElementById('result').innerHTML+=n+" is prime.<br>"; }
+        else { document.getElementById('result').innerHTML+=n+" is not prime.<br>"; }
+      }
+</script>
+<script type="text/Javascript">
+      function range()
+      {
+        var i=j=0;
+        var count=0;
+        var l=parseInt(document.getElementById('limit').value);
+		document.getElementById('print').insertAdjacentHTML("beforeend","<br>");
+		document.getElementById('print').insertAdjacentHTML("beforeend","For range of 1 to "+l+" prime numbers are ");
+        for (i = 1; i <= l; i++)
+        {
+          flag=0;
+          for(j=1;j<=i;j++)
+          {
+            if(i%j==0) { flag++; }
+          }
+          if(flag==2) { count++; document.getElementById('print').insertAdjacentHTML("beforeend"," "+i); }
+        }
+        document.getElementById('print').insertAdjacentHTML("beforeend","<br>The counted prime numbers are "+count+".");
+      }
+  </script>
+</head>
+<body>
+  <div>
+  <h1>Check the prime or not</h1>
+  <input type="text" id="num" placeholder="Enter number only"  onkeydown="if(event.keyCode == 13){document.getElementById('b1').click()}" autofocus required></input>
+  <input id="b1" type="button" value="Check" onclick="primeornot()"></input>
+  <h3 id="result">Ans: </h3>
+</div>
+<div>  <h1>Print range of prime number</h1>
+  <input type="text" id="limit" placeholder="Enter number only" onkeydown="if(event.keyCode == 13){document.getElementById('b2').click()}" required></input>
+  <input id="b2" type="button" value="Print" onclick="range()"></input>
+  <h3 id="print"> </h3>
+</div>
+</body>
+</html>
